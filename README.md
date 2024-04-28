@@ -1,6 +1,10 @@
 # LayerRemoval
 We have implemented a Model Agnostic function called  `layer_removal` , which is designed to directly remove specified layers from the LLM.  This function is suitable for the transformers library from HuggingFace.
 
+To remove a layer, we need to consider its importance. We drew inspiration from the theories presented in the paper below:
+
+- "[ShortGPT: Layers in Large Language Models are More Redundant Than You Expect](https://arxiv.org/pdf/2403.03853)"
+
 ## Use Example
 
 ```python
