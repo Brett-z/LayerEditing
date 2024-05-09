@@ -16,6 +16,9 @@ def layer_removal(
     for prune_layer in sorted_list:
         del(layers[prune_layer])
 
-    for i in range(first_del_layer, model.config.num_hidden_layers - prune_layer_num):
-        model.model.layers[i].self_attn.layer_idx = model.model.layers[i].self_attn.layer_idx - prune_layer_num
-        # print(model.model.layers[i].self_attn.layer_idx)
+    sorted_list = sorted(prune_list) 
+
+    for j in range(0, prune_layer_num):
+        start = sorted_list[j] - j
+        for i in range(start, model.config.num_hidden_layers - prune_layer_num):
+            model.model.layers[i].self_attn.layer_idx = model.model.layers[i].self_attn.layer_idx - 1
